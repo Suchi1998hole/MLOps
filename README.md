@@ -1,11 +1,15 @@
 ***** Diabetes Prediction MLOps Project *****
+
 Model:
-A complete end-to-end Machine Learning Operations (MLOps) pipeline for predicting diabetes using the Pima Indians Diabetes dataset. This project demonstrates the full lifecycle from model training to production deployment on Google Cloud.
+A complete end-to-end Machine Learning Operations (MLOps) pipeline for predicting diabetes using the Pima Indians Diabetes dataset.
+This project demonstrates the full lifecycle from model training to production deployment on Google Cloud.
+
 Project Overview
 Goal: Build and deploy a machine learning model that predicts whether a patient has diabetes based on diagnostic measurements.
 Dataset: Pima Indians Diabetes Dataset (768 samples, 8 features)
 Model: Logistic Regression with StandardScaler normalization
 Accuracy: 73.44% on test set
+
 Live API: https://diabetes-api-421235068177.us-central1.run.app/predict
 
 Architecture
@@ -13,24 +17,6 @@ Data → Training → Model → Flask API → Docker → Google Cloud Run
                      ↓
               Streamlit UI (Local)
 
-📁 Project Structure
-Lab1/
-├── data/
-│   └── diabetes.csv              # Pima Indians Diabetes dataset
-├── model/
-│   ├── model.pkl                 # Trained Logistic Regression model
-│   └── scaler.pkl                # StandardScaler for feature normalization
-├── src/
-│   ├── train.py                  # Model training script
-│   ├── predict.py                # Prediction logic
-│   ├── main.py                   # Flask REST API
-│   └── test_api.py               # API testing script
-├── streamlit_app.py              # Web interface
-├── Dockerfile                    # Container configuration
-├── cloudbuild.yaml               # Google Cloud Build config
-├── requirements.txt              # Python dependencies
-├── .gitignore                    # Git ignore file
-└── README.md                     # This file
 
 
 Implemented Steps:
@@ -120,11 +106,11 @@ Step 6: Dockerize the Application
 RUN mkdir -p model
 RUN python src/train.py
 
-6.2 Build Docker Image Locally (Optional)
+6.2 Build Docker Image Locally 
 
 docker build --platform linux/amd64 -t diabetes-api .
 
-6.3 Run Docker Container Locally (Optional)
+6.3 Run Docker Container Locally 
 
 docker run -p 8080:8080 -e PORT=8080 diabetes-api
 Test: http://localhost:8080/predict
@@ -133,7 +119,7 @@ Test: http://localhost:8080/predict
 Step 7: Deploy to Google Cloud Run
 7.1 Setup Google Cloud
 
-# Install Google Cloud SDK (if not already installed)
+# Install Google Cloud SDK 
 brew install --cask google-cloud-sdk 
 # Initialize gcloud
 gcloud init

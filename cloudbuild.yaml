@@ -1,0 +1,5 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/project-896a761b-267c-4d48-ba1/diabetes-api', '.']
+images:
+- 'gcr.io/project-896a761b-267c-4d48-ba1/diabetes-api'
